@@ -1,0 +1,694 @@
+/********** body คุมโซน index ***********/
+
+body {
+    background-color: #ffffff;
+    font-family: Noto Sans Thai, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+
+}
+  
+  .dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* ตัวอย่างเพิ่มสีในโหมด Dark สามารถปรับแต่งตามที่ต้องการ */
+  .dark-mode nav {
+    background-color: #222;
+  }
+  
+  .light-mode {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* ตัวอย่างเพิ่มสีในโหมด Light สามารถปรับแต่งตามที่ต้องการ */
+  .light-mode nav {
+    background-color: #f8f8f8;
+  }
+  .mode-toggle {
+    display: flex;
+    font-size: 1em; /* หรือค่าที่ต้องการ เช่น 1em, 1.2rem หรือ 100% */
+    align-items: center;
+    cursor: pointer;
+    margin-left: auto; /* ย้ายไปทางขวา */
+    padding: 10px;
+}
+
+  
+  .sun-icon,
+.moon-icon {
+  width: 40px; /* ปรับขนาดตามที่คุณต้องการ */
+  height: 40px; /* ปรับขนาดตามที่คุณต้องการ */
+  margin-right: 5px;
+}
+
+/*******ปุ่มเลื่อนขึ้นบนเปิด Scroll-to-top-btn************/
+#scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  #scroll-to-top-btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเมื่อ hover */
+    transform: translateY(-5px);
+  }
+  #scroll-to-top-btn.active {
+    animation: arrowAnimation 0.5s ease;
+}
+
+@keyframes arrowAnimation {
+    0%, 20% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+  /*******ปุ่มเลื่อนขึ้นบนปิด Scroll-to-top-btn************/
+
+
+/* โค้ดปรับตำแหน่ง ตามขนาดอุปกรณ์ ตามความเหมาะสม */
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 60px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        z-index: 999;
+    }
+
+    nav ul.show + .overlay {
+        display: block;
+    }
+}
+
+/************************************/
+
+
+
+
+/******************* ส่วน HEADER ***************/
+/***********************************************/
+
+
+header {
+    background-color: #feffff;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+.dynamic-bg {/* เพิ่มสไตล์สำหรับ dynamic-bg */
+    transition: background-color 0.3s ease; /* เพิ่ม transition สำหรับการเปลี่ยนสี */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    position: fixed;
+    background: linear-gradient(60deg, #004cff, #00bfff, #003cff);
+    background-size: 200% 200%; /* เพิ่มขนาด Gradient */
+    animation: gradient 10s ease infinite; /* เพิ่ม Animation */
+    color: #fff;
+    width: 98.5%;
+    border-radius: 10px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    animation: showAnimation 1s ease-in-out; /* 1s คือระยะเวลา, ease-in-out คือฟังก์ชันการเร่งเติม */
+}
+
+nav img {
+    max-width: 50px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    animation: showAnimation 1s ease-in-out; /* 1s คือระยะเวลา, ease-in-out คือฟังก์ชันการเร่งเติม */
+}
+
+@keyframes showAnimation {
+    from {
+        transform: translateY(0px); /* เริ่มต้นโดยการเลื่อนขึ้นไป 50px */
+        opacity: 0; /* เริ่มต้นโปร่งแสง */
+    }
+    to {
+        transform: translateY(0); /* สิ้นสุดที่ตำแหน่งปกติ */
+        opacity: 1; /* สิ้นสุดโปร่งแสง */
+    }
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 35px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-family: 'Mitr', sans-serif;
+    color: #ffffff;
+    transition: color 0.6s;
+    transition-delay: 0.1s;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* ul and li Hover */
+nav ul li a:hover {
+    color: #ffc107; /* สีข้อความเมื่อ hover */
+    border-radius: 10px; /* เพิ่ม border-radius เมื่อ hover */
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #ffffff;
+}
+
+/******************* Close ส่วน HEADER ***************/
+/*****************************************************/
+
+
+
+/************ ส่วน Main ***************/
+/*******ในส่วน หน้าปก*********/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 65px;
+}
+.featured-content {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65vh; /* ความสูงของ Featured Content ตามที่คุณต้องการ */
+    margin-top: 50px
+}
+
+.featured-image img {
+    max-width: 90%; /* ปรับขนาดของรูปภาพ */
+    margin-left: 100px; /* ระยะห่างระหว่างรูปภาพกับข้อความ */
+    width: 100%;
+    height: auto;
+    border-radius: 20px; /* กรอบขอบรูป */
+    display: flex;
+    align-items: left;
+    justify-content: center;
+}
+
+
+.featured-text {/* เพิ่มสไตล์ที่คุณต้องการสำหรับข้อความ */
+    max-width: 100%; /* ปรับขนาดของข้อความ */
+    height: auto;
+    text-align: left;
+    word-wrap: break-word; /* เพิ่มคำสั่งนี้ */
+    padding: 10px; /* เพิ่ม padding รอบข้อความ */
+}
+
+.featured-text h11,
+.featured-text h12,
+.featured-text p1 {
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-weight: bold;
+    white-space: nowrap; /* เพิ่มคำสั่งนี้ */
+    
+}
+
+.section-title h1{
+    font-size: 85px; /* ขนาดฟอนต์สำหรับ Welcome To */
+    margin-bottom: 0; /* ลดระยะห่างด้านล่าง */
+    color: #007bff; /* สีข้อความ */
+    font-family: 'Noto Sans Thai', sans-serif;
+
+}
+
+.featured-text h11 {
+    font-size: 48px; /* ขนาดฟอนต์สำหรับ Welcome To */
+    margin-bottom: 0; /* ลดระยะห่างด้านล่าง */
+    color: #007bff; /* สีข้อความ */
+}
+
+.featured-text h12 {
+    display: block; /* จัดให้เป็น block element */
+    margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่างระหว่างบรรทัด */ 
+    font-size: 72px; /* ขนาดฟอนต์สำหรับ Lean Photopea */
+    margin-top: 0px; /* ลดระยะห่างด้านบนและเขยิบขึ้น */
+    margin-left: 5px; /* ปรับระยะห่างระหว่าง Welcome To กับ Lean Photopea */
+    color: #007bff; /* สีข้อความ */
+}
+
+.featured-text p1 {
+    font-size: 36px; /* ขนาดฟอนต์สำหรับ Lean Photopea */
+    margin-top: 0px; /* ลดระยะห่างด้านบนและเขยิบขึ้น */
+    margin-left: 5px; /* ปรับระยะห่างระหว่าง Welcome To กับ Lean Photopea */
+
+}.featured-text p2 {
+    display: block; /* จัดให้เป็น block element */
+    font-size: 18px; /* ขนาดฟอนต์สำหรับ Lean Photopea */
+    margin-top: 0px; /* ลดระยะห่างด้านบนและเขยิบขึ้น */
+    margin-left: 5px; /* ปรับระยะห่างระหว่าง Welcome To กับ Lean Photopea */
+    color: #007bff;
+}
+
+.featured-text h11::after {
+    content: "\00a0"; /* เพิ่ม non-breaking space หลังจาก Welcome To */
+}
+
+/**** open About page *****/
+
+.featured-About-text {
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+.featured-AboutWeb {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 60px;
+    margin-top: 80px;
+
+    transition: box-shadow 0.3s ease; /* เพิ่ม transition เพื่อให้มีการเปลี่ยนแปลงเนื้อหาอย่างนุ่มนวล */
+}
+
+.featured-AboutWeb img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 40px;
+    transition: transform 0.3s ease; /* เพิ่ม transition ในการเปลี่ยนรูปภาพ */
+}
+
+
+.featured-About-text {
+    margin-top: 10px; /* ระยะห่างของ .featured-About-text จาก .featured-AboutWeb */
+}
+
+
+
+/***** close About page *****/
+
+
+
+.cta-button {
+    display: inline-block;
+    margin-right: 8px; /* กำหนดระยะห่างขวาของปุ่มแรก */
+    padding: 10px 20px;
+    margin-top: 32px;
+    font-size: 20px;
+    font-family: 'Mitr', sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเมื่อ hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition effect */
+}
+
+:root {
+    --button-color-start: #007bff; /* สีเริ่มต้นของปุ่ม */
+    --button-color-end: #00bfff; /* สีสิ้นสุดของปุ่ม */
+}
+.button-outline {
+    border-radius: 5px; /* กำหนดให้ปุ่มไม่มีเส้นขอบ */
+    padding: 10px 20px; /* ปรับขนาด padding ตามต้องการ */
+    font-size: 20px; /* ปรับขนาด font ตามต้องการ */
+    color: #007bff;
+    cursor: pointer; /* เปลี่ยน cursor เป็น pointer เมื่อชี้ที่ปุ่ม */
+    outline: 2px solid #007bff; /* กำหนด outline เป็นเส้นสีน้ำเงิน */
+    text-decoration: none; /* ลบเส้นขีดที่อยู่บน text */
+}
+
+
+.button-outline:hover {
+    background-color: #bad3ee; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเมื่อ hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition effect */
+}
+
+:root {
+    --button-color-start: #007bff; /* สีเริ่มต้นของปุ่ม */
+    --button-color-end: #00bfff; /* สีสิ้นสุดของปุ่ม */
+}
+
+@keyframes gradientButton { /* เพิ่ม keyframes animation สำหรับไล่สี */
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.cta-button.video-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 60px;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 50px;
+    background: linear-gradient(60deg, #ff8c00, #f4dc00, #ff8c00); /* เพิ่มสีไล่กาเดี้ยนสีส้ม */
+    background-size: 200% 200%;
+    animation: gradientButton 2s ease infinite;
+}
+
+#play-button:hover {
+    filter: brightness(1.2);
+    animation: none;
+    background-color: #ff7f00; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+span {
+    font-size: 35px; /* ปรับขนาดตามที่ต้องการ */
+    cursor: pointer;
+}
+
+/* เพิ่ม hover effect */
+.cta-button.video-button:hover {
+    background-color: #fafafa;
+}
+
+/************ ส่วน Main ***************/
+/*******ในส่วน หน้าปก*********/
+
+
+
+.services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: -20;
+    
+}
+.section-title h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #007bff; /* เพิ่มสีนี้เพื่อให้เป็นสีฟ้า */
+}
+
+.article-body p {
+    font-family: 'Mitr', sans-serif; /* เลือกฟอนต์ที่รองรับทั้งภาษาไทยและภาษาอังกฤษ */
+    font-size: 18px; /* ปรับขนาดตามที่ต้องการ */
+    line-height: 1.6; /* ปรับระยะห่างระหว่างบรรทัด */
+    font-weight: 300; /* 300 หมายถึง ลักษณะฟอนต์ผอม (slim) */
+    color: #333; /* ปรับสีตัวอักษร */
+}
+
+
+.section-title p {
+    text-align: center;
+    font-family: 'Mitr', sans-serif; /* เลือกฟอนต์ที่รองรับทั้งภาษาไทยและภาษาอังกฤษ */
+    margin-bottom: 20px;
+    font-size: 24px
+}
+
+article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    margin-top: 30px;
+  }
+  
+  article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: "";
+  }
+  
+  article h2 {
+    margin: 0 0 18px 0;
+    font-family: 'Mitr', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+    color: #007bff
+  }
+  
+  figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  
+  article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .article-body {
+    padding: 24px;
+  }
+  
+  article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #28666e;
+  }
+  
+  article a:focus {
+    outline: 1px dotted #28666e;
+  }
+  
+  article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+  }
+  
+  /* using the has() relational pseudo selector to update our custom properties */
+  article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #28666e;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+  
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  .articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  @media screen and (max-width: 960px) {
+    article {
+      container: card/inline-size;
+    }
+    .article-body p {
+      display: none;
+    }
+  }
+  
+  @container card (min-width: 380px) {
+    .article-wrapper {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+    }
+    .article-body {
+      padding-left: 0;
+    }
+    figure {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    figure img {
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+  
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+/* ---------------------- */
+
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    bottom: 0;
+    width: 100%;
+}
+
+.article-preview {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.article-preview h3 {
+    margin-top: 0;
+}
+
+.article-preview a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.article-preview a:hover {
+    color: #ffc107;
+}
+/********** end body index ***********/
+
+/********** Start Lesson ************/
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ความสูงเต็มหน้าจอ */
+}
+
+video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/********** end Start Lesson ************/
+

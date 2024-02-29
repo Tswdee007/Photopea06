@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบหลังเรียน</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Photopea_logo title.ico" type="image/x-icon">
+</head>
+<style>
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 30px; /* ปรับขนาดตามที่ต้องการ */
+    font-size: 18px; /* ปรับขนาดตามที่ต้องการ */
+    background-color: #007bff; /* สีน้ำเงิน */
+    color: #fff; /* สีข้อความ */
+    border: none;
+    border-radius: 5px; /* กำหนดรูปทรงของกรอบ */
+    cursor: pointer;
+}
+
+/* เพิ่ม hover effect */
+button:hover {
+    background-color: #0056b3; /* สีน้ำเงินเข้มเพื่อ hover effect */
+}
+
+
+.featured-test{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 80px; /* ตั้งค่าระยะห่างที่ต้องการ */
+    font-family: 'Mitr', sans-serif;
+    font-size: 95px;
+    color: #007bff;
+    white-space: nowrap;
+    margin-top: 80px;
+}
+
+/* เพิ่มส่วนนี้เพื่อจัดกลางปุ่ม */
+button {
+    margin-top: 20px; /* ระยะห่างของปุ่มจากคำถาม */
+}
+
+.question-container {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 15px;
+    border: 1px solid rgb(55, 20, 254);
+    margin-bottom: 40px;
+    margin-top: 0; /* เพิ่มบรรทัดนี้ */
+        
+    }
+    .options-container {
+        margin-top: 10px;
+    }
+
+    .result-container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: center;
+    }
+    .question-container:nth-child(1) {
+    text-align: center;
+}
+    #quiz-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+</style>
+
+<body>
+
+    <header>
+        <nav class="dynamic-bg">
+            <div class="logo">
+                <img src="Photopea_logo.ico" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="About.html">เกี่ยวกับเว็บไซต์</a></li>
+                <li><a href="Start lesson.html">เริ่มบทเรียน</a></li>
+            </ul>
+            <div class="mode-toggle" onclick="toggleMode()">
+                <img class="sun-icon" src="light.png" alt="Sun Icon">
+                <img class="moon-icon" src="Dark.png" alt="Moon Icon">
+              </div>
+        </nav>
+    </header>
+
+    <div id="scroll-to-top-btn" onclick="scrollToTop()">
+
+        <span1>&#9650;</span1>
+
+    </div>
+
+    <main>
+        <section id="quiz-container">
+            <div class="featured-test">
+                <h8>แบบทดสอบหลังเรียน</h8>
+            </div>
+            <!-- ในส่วนนี้จะถูกเพิ่มโดย JavaScript -->
+        </section>
+
+        <section class="result-container" id="result-container" style="display:none;">
+            <h2>ผลลัพธ์การทดสอบ</h2>
+            <div id="question-results"></div>
+            <p id="total-score"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Website teach How to use Photopee</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var quizData = [
+                {
+                    question: "คำถามที่ 1: เครื่องมือใดใน Photopea ใช้สำหรับวาดเส้นตรง?",
+                    options: ["A.  Pen Tool", "B.  Line Tool", "C.  Brush Tool", "D.  Shape Tool"],
+                    correctAnswer: "A.  Pen Tool"
+                },
+                {
+                    question: "คำถามที่ 2: เครื่องมือใดใน Photopea ใช้สำหรับเลือกพื้นที่รูปสี่เหลี่ยมผืนผ้า?",
+                    options: ["A. Rectangle Tool", "B. Marquee Tool", "C. Lasso Tool", "D. Magic Wand Tool"],
+                    correctAnswer: "C. Lasso Tool"
+                },
+                {
+                    question: "คำถามที่ 3: เครื่องมือใดใน Photopea ใช้สำหรับเติมสีให้กับวัตถุ?",
+                    options: ["A. Paint Bucket Tool", "B. Gradient Tool", "C. Pattern Tool", "D. Shape Tool"],
+                    correctAnswer: "A. Paint Bucket Tool"
+                },
+                {
+                    question: "คำถามที่ 4: เครื่องมือใดใน Photopea ใช้ในการแก้ไขข้อความแบบอักษร?",
+                    options: ["A. Text Tool3", "B. Type Tool", "C. Typography Tool", "D. Font Tool"],
+                    correctAnswer: "C. Typography Tool"
+                },
+                {
+                    question: "คำถามที่ 5: เครื่องมือใดใน Photopea ใช้ในการปรับแต่งค่าความสว่าง ความคมชัด และคอนทราสต์ของภาพถ่าย?",
+                    options: ["A. Adjustment Tool", "B. Filter Tool", "C. Effect Tool", "D. Layer Style"],
+                    correctAnswer: "A. Adjustment Tool"
+                },
+                {
+                    question: "คำถามที่ 6: เครื่องมือใดใน Photopea ใช้ในการเพิ่มเอฟเฟคเบลอให้กับภาพถ่าย?",
+                    options: ["A. Filter Tool", "B. Effect Tool", "C. Layer Style", "D. Adjustment Tool"],
+                    correctAnswer: "A. Filter Tool"
+                },
+                {
+                    question: "คำถามที่ 7: เครื่องมือใดใน Photopea ใช้ในการจัดเรียงเลเยอร์ด้านบนและด้านล่างของเลเยอร์อื่น?",
+                    options: ["A. Layer Tool", "B. Arrange Tool", "C. Layers Panel", "D. Layer Properties"],
+                    correctAnswer: "B. Arrange Tool"
+                },
+                {
+                    question: "คำถามที่ 8: เครื่องมือใดใน Photopea ใช้ในการลบเลเยอร์ทั้งหมดในเอกสาร?",
+                    options: ["A. Layer Tool", "B. Delete Layer", "C. Layers Panel", "D. Layer Properties"],
+                    correctAnswer: "C. Layers Panel"
+                },
+                {
+                    question: "คำถามที่ 9: เครื่องมือใดใน Photopea ใช้ในการบันทึกภาพในไฟล์ JPEG?",
+                    options: ["A. Save Tool", "B. Save As Tool", "C. Export Tool", "D. File Menu"],
+                    correctAnswer: "B. Save As Tool"
+                },
+                {
+                    question: "คำถามที่ 10: เครื่องมือใดใน Photopea ใช้ในการเปิดภาพจากไฟล์ RAW?",
+                    options: ["A. Open Tool", "B. Open As Tool", "C. Import Tool", "10"],
+                    correctAnswer: "B Open As Tool"
+                }
+                
+            ];
+
+            var quizContainer = document.getElementById("quiz-container");
+    var resultContainer = document.getElementById("result-container");
+    var questionResultsContainer = document.getElementById("question-results");
+    var totalScoreContainer = document.getElementById("total-score");
+
+    function createQuiz() {
+        for (var i = 0; i < quizData.length; i++) {
+            var questionContainer = document.createElement("div");
+            questionContainer.classList.add("question-container");
+
+            var questionText = document.createElement("p");
+            questionText.textContent = quizData[i].question;
+
+            var optionsContainer = document.createElement("div");
+            optionsContainer.classList.add("options-container");
+
+            for (var j = 0; j < quizData[i].options.length; j++) {
+                var optionLabel = document.createElement("label");
+                var optionInput = document.createElement("input");
+                optionInput.type = "radio";
+                optionInput.name = "q" + (i + 1);
+                optionInput.value = quizData[i].options[j];
+
+                optionLabel.appendChild(optionInput);
+                optionLabel.appendChild(document.createTextNode(quizData[i].options[j]));
+
+                optionsContainer.appendChild(optionLabel);
+            }
+
+            questionContainer.appendChild(questionText);
+            questionContainer.appendChild(optionsContainer);
+            quizContainer.appendChild(questionContainer);
+        }
+    }
+
+    function showResults() {
+    // ลบประวัติผลลัพท์ที่แสดงมาก่อน
+    questionResultsContainer.innerHTML = "";
+    totalScoreContainer.textContent = "";
+
+    var questions = document.querySelectorAll(".question-container");
+    var correctAnswers = 0;
+
+    for (var i = 0; i < questions.length; i++) {
+        var selectedOption = questions[i].querySelector("input:checked");
+
+        if (selectedOption) {
+            var userAnswer = selectedOption.value;
+            var correctAnswer = quizData[i].correctAnswer;
+
+            // แสดงผลลัพท์ของแต่ละคำถาม
+            var resultItem = document.createElement("p");
+            resultItem.textContent = "คำถามที่ " + (i + 1) + ": " + (userAnswer === correctAnswer ? "ถูกต้อง" : "ผิด") +
+                (userAnswer === correctAnswer ? "" : " (คำตอบของคุณ: " + userAnswer + ", คำตอบที่ถูก: " + correctAnswer + ")");
+
+            questionResultsContainer.appendChild(resultItem);
+
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+            }
+        }
+    }
+
+    // แสดงผลลัพท์รวม
+    var totalScoreText = "คุณตอบถูก " + correctAnswers + " จาก " + questions.length + " คำถาม";
+    totalScoreContainer.textContent = totalScoreText;
+
+    // แสดง container ที่มีผลลัพท์
+    resultContainer.style.display = "block";
+}
+
+
+
+
+    createQuiz();
+
+    var submitButton = document.createElement("button");
+    submitButton.textContent = "ส่งคำตอบ";
+    submitButton.addEventListener("click", showResults);
+    quizContainer.appendChild(submitButton);
+});
+
+
+    </script>
+</body>
+
+</html>

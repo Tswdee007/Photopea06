@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบหลังเรียน</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<main>
+    <section class="featured-content">
+        <h8>แบบทดสอบก่อนเรียน</h3>
+        <p>เว็บไซต์นี้มีเป้าหมายที่จะให้ข้อมูลที่มีคุณค่าและน่าสนใจสำหรับคุณ</p>
+    </section>
+
+    <section class="latest-articles">
+    
+</main>
+    <nav>
+        <ul>
+            <li><a href="index.html">หน้าแรก</a></li>
+        </ul>
+    </nav>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การทดสอบหลังบทเรียน</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .test-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            margin: 0 10px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-container">
+        <div class="question">1. ในโปรแกรม Java, การประกาศตัวแปรชนิด int ที่มีค่าเริ่มต้นเท่ากับ 0 คือ?</div>
+        <div class="options">
+            <div class="option"><input type="radio" name="q1" value="a"> a) float</div>
+            <div class="option"><input type="radio" name="q1" value="b"> b) null</div>
+            <div class="option"><input type="radio" name="q1" value="c"> c) void</div>
+            <div class="option"><input type="radio" name="q1" value="d"> d) ไม่มี</div>
+        </div>
+
+        <div class="question">2. ใน HTML, แท็กที่ใช้สำหรับการสร้างลิงก์คือ?</div>
+        <div class="options">
+            <div class="option"><input type="radio" name="q2" value="a"> a) &lt;link&gt;</div>
+            <div class="option"><input type="radio" name="q2" value="b"> b) &lt;a&gt;</div>
+            <div class="option"><input type="radio" name="q2" value="c"> c) &lt;url&gt;</div>
+            <div class="option"><input type="radio" name="q2" value="d"> d) &lt;web&gt;</div>
+        </div>
+
+        <button onclick="submitTest()">ส่งคำตอบ</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function submitTest() {
+            var q1 = document.querySelector('input[name="q1"]:checked').value;
+            var q2 = document.querySelector('input[name="q2"]:checked').value;
+
+            var correctAnswers = 0;
+
+            if (q1 === 'd') {
+                correctAnswers++;
+            }
+
+            if (q2 === 'b') {
+                correctAnswers++;
+            }
+
+            var resultDiv = document.getElementById('result');
+            resultDiv.textContent = `คุณตอบถูก ${correctAnswers} คำถามจาก 2 คำถามทั้งหมด`;
+        }
+    </script>
+    <script>
+        // โค้ด JavaScript สำหรับลูกเล่นนี้
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeMessage = document.querySelector('.featured-content h1');
+            welcomeMessage.textContent = 'ยินดีต้อนรับสู่ Website teach How to use Photopee';
+    
+            const articles = document.querySelectorAll('.article-preview');
+            articles.forEach(article => {
+                article.addEventListener('mouseover', function() {
+                    article.style.backgroundColor = '#f8f9fa';
+                });
+    
+                article.addEventListener('mouseout', function() {
+                    article.style.backgroundColor = '#ffffff';
+                });
+            });
+    
+            const footerYear = document.querySelector('footer p');
+            const currentYear = new Date().getFullYear();
+            footerYear.textContent = `© ${currentYear} Website teach How to use Photopee. สงวนลิขสิทธิ์`;
+        });  
+    </script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav ul li a');
+    
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetPage = this.getAttribute('href');
+                    window.location.href = targetPage;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website teach How to use Photopee</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Photopea_logo title.ico" type="image/x-icon">
+</head>
+
+<style>
+
+.lesson-video {
+    border-radius: 40px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 20px; /* ระยะห่างด้านบน */
+}
+
+.lesson-video:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-video-text {
+    font-size: 20px;
+    margin-bottom: 80px;
+    margin-top: 80px; /* ระยะห่างด้านบน */
+    font-family: 'Mitr', sans-serif;
+    color: #007bff;
+}
+
+.lesson-video video {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.featured-lesson {
+    margin-bottom: 80px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 125px;
+    color: #007bff;
+    white-space: nowrap;
+    margin-top: 180px;
+}
+
+.lesson-video {
+    text-align: center;
+    width: 100%; /* ปรับเป็น 100% ของความกว้างของพื้นที่ที่บรรจุคลิป */
+    max-width: 800px; /* ปรับขนาดสูงสุดของคลิป */
+    height: auto; /* ทำให้ความสูงปรับตามอัตราส่วนของความกว้าง */
+    margin: 0 auto; /* จัดตำแหน่งกลางตามแนวนอน */
+
+}
+
+.quiz-link {
+    cursor: pointer;
+    background: linear-gradient(to right, #007bff, #00bfff); /* ใช้ linear-gradient เพื่อสร้างไล่สี */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-top: 60px; /* ระยะห่างด้านบน */
+    margin-bottom: 60px; /* ระยะห่างด้านล่าง */
+}
+
+.quiz-link:hover {
+    background-color: #0f00dd; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    transform: scale(1.1); /* เพิ่มอนิเมชัน scale ให้กับปุ่มเมื่อ hover */
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+.test-button {
+    margin-top: 10px; /* ปรับขนาดระยะห่างตามที่คุณต้องการ */
+}
+
+</style>
+
+<body>
+    <header>
+        <nav class="dynamic-bg">
+            <div class="logo">
+                <img src="Photopea_logo.ico" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="About.html">เกี่ยวกับเว็บไซต์</a></li>
+                <li><a href="Start lesson.html">เริ่มบทเรียน</a></li>
+                <li><a href="beforetest.html">แบบทดสอบก่อนเรียน</a></li>
+            </ul>
+            <div class="mode-toggle" onclick="toggleMode()">
+                <img class="sun-icon" src="light.png" alt="Sun Icon">
+                <img class="moon-icon" src="Dark.png" alt="Moon Icon">
+            </div>
+        </nav>
+    </header>
+
+    <div id="scroll-to-top-btn" onclick="scrollToTop()">
+      <span1>&#9650;</span1>
+    </div>
+
+    <main>
+        <section class="featured-lesson">
+            <div class="featured-text">
+                <h11>Advanced Photo Editor</h11>
+            </div>
+        </section>
+
+      
+        <div class="lesson-video-text p1">
+        <p1>บทเรียนที่ 3.1: Adjustment And Adjustment Layer</p1>
+       </div>
+
+        <div class="lesson-video">
+            <video controls>
+                <source src="Video lesson 3\1Adjustment And Adjustment Layer.mp4" type="video/mp4">
+            </video>
+            <p>บรรยาย</p>
+           </div>
+
+           <div class="lesson-video-text p1">
+            <p1>บทเรียนที่ 3.2: Matching Photo Color with Curves</p1>
+        </div>
+
+        <div class="lesson-video">
+          <video controls>
+              <source src="Video lesson 3\2Matching Photo Color with Curves.mp4" type="video/mp4">
+          </video>
+          <p>บรรยาย</p>
+        </div>
+
+        <div class="lesson-video-text p1">
+            <p1>บทเรียนที่ 3.3: Layer Mask</p1>
+        </div>
+
+        <div class="lesson-video">
+        <video controls>
+            <source src="Video lesson 3\3Layer Mask.mp4" type="video/mp4">
+        </video>
+        <p>บรรยาย</p>
+        </div>
+
+        <div class="lesson-video-text p1">
+            <p1>บทเรียนที่ 3.4: Creating Shadow</p1>
+        </div>
+
+        <div class="lesson-video">
+      <video controls>
+          <source src="Video lesson 3\4Creating Shadow.mp4" type="video/mp4">
+      </video>
+      <p>บรรยาย</p>
+      </div>
+
+      <div class="lesson-video-text p1">
+        <p1>บทเรียนที่ 3.5: High Pass Filter</p1>
+    </div>
+
+    <div class="lesson-video">
+  <video controls>
+      <source src="Video lesson 3\5High Pass Filter.mp4" type="video/mp4">
+  </video>
+  <p>บรรยาย</p>
+  </div>
+
+  <div class="lesson-video-text p1">
+    <p1>บทเรียนที่ 3.6: Blur</p1>
+</div>
+
+<div class="lesson-video">
+<video controls>
+  <source src="Video lesson 3\6Blur.mp4" type="video/mp4">
+</video>
+<p>บรรยาย</p>
+</div>
+
+<div class="lesson-video-text p1">
+    <p1>บทเรียนที่ 3.7: Glow Up</p1>
+</div>
+
+<div class="lesson-video">
+<video controls>
+  <source src="Video lesson 3\7Glow Up.mp4" type="video/mp4">
+</video>
+<p>บรรยาย</p>
+</div>
+
+<div class="lesson-video-text p1">
+    <p1>บทเรียนที่ 3.8: Selection เรียนรู้ในเครื่องมือสำหรับแก้ไขพิกเซลเพียงบางส่วน</p1>
+</div>
+
+<div class="lesson-video">
+<video controls>
+  <source src="Animated GIF" type="video/mp4">
+</video>
+<p>บรรยาย</p>
+</div>
+      
+
+  </div>
+  <div class="quiz-link" onclick="goToQuizPage2()">
+    <p>เเบบทดสอบหลังเรียน</p>
+</div>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Website teach How to use Photopee</p>
+    </footer>
+
+    <script src="script.js"></script>
+   
+    
+</body>
+
+</html>
